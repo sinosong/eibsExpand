@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.brilliance.module.base.mapper.BizCanvasMapper">
+
+
+    <select id="getMaxWorkDate" resultType="java.lang.String">
+        SELECT
+        to_char(MAX (mem.workdate),'yyyy-mm-dd hh24:mi:ss') workdate
+        FROM INF_AFPCMEM mem
+        <where>
+            <if test="endDate != null and endDate != ''">
+                AND (mem.workdate &lt;= TO_DATE(#{endDate},'yyyy-mm-dd hh24:mi:ss'))
+            </if>
+        </where>
+    </select>
+
+</mapper>
