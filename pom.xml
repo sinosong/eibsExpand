@@ -9,9 +9,8 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>eibsExpand Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <name>eibsExpand</name>
+  <url>http://maven.apache.org</url>
 
   <properties>
 
@@ -19,7 +18,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
-    <spring.version>4.3.5.RELEASE</spring.version>
+    <spring.version>4.3.18.RELEASE</spring.version>
     <junit.version>4.12</junit.version>
     <druid.version>1.1.0</druid.version>
     <fastjson.version>1.2.8</fastjson.version>
@@ -28,6 +27,7 @@
     <aspectjweaver.version>1.8.8</aspectjweaver.version>
     <fileupload.version>1.3.1</fileupload.version>
     <jstl.version>1.2</jstl.version>
+    <server.port>10200</server.port>
 
   </properties>
 
@@ -133,6 +133,16 @@
       <groupId>com.baomidou</groupId>
       <artifactId>mybatis-plus</artifactId>
       <version>${mybaitsplus.version}</version>
+        <exclusions>
+            <exclusion>
+                <artifactId>spring-context-support</artifactId>
+                <groupId>org.springframework</groupId>
+            </exclusion>
+            <exclusion>
+                <artifactId>spring-jdbc</artifactId>
+                <groupId>org.springframework</groupId>
+            </exclusion>
+        </exclusions>
     </dependency>
 
     <!-- Oracle -->
@@ -179,6 +189,11 @@
       <artifactId>jackson-annotations</artifactId>
       <version>2.9.8</version>
     </dependency>
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+          <version>3.1.0</version>
+      </dependency>
 
   </dependencies>
 
@@ -218,6 +233,31 @@
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+          <executions>
+            <execution>
+              <id>run-war-only</id>
+              <phase>pre-integration-test</phase>
+              <goals>
+                <goal>run-war-only</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <warDirectory>target/${project.name}</warDirectory>
+            <path>/eibsExpand</path>
+            <contextReloadable>true</contextReloadable>
+            <uriEncoding>UTF-8</uriEncoding>
+            <port>${server.port}</port>
+            <url>http://localhost:${server.port}/manager/text</url>
+            <server>tomcat</server>
+            <username>admin</username>
+            <password>admin</password>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
