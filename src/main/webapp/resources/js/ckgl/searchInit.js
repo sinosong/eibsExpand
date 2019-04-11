@@ -256,7 +256,12 @@ $(function () {
 					//alert(JSON.stringify(data));
 				},
 				onLoadError: function (data) {
-                  alert("数据加载失败！"+JSON.stringify(data));
+					bootbox.alert({
+						size :'small',
+						message : '数据加载失败！'+JSON.stringify(data),
+						className : 'alertw'
+					});
+                  // alert("数据加载失败！"+JSON.stringify(data));
                }/*,onDblClickCell: function (field, value,row,td) {
                    alert(value);   
                }*/
