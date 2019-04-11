@@ -47,8 +47,20 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SpringMVC</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/brilliance/*</url-pattern>
+    <url-pattern>/resources/**</url-pattern>
   </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>brilliance/</welcome-file>
+  </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/resources/html/404Error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/resources/html/500Error.html</location>
+    </error-page>
 
   <!-- Session超时时间 -->
   <session-config>

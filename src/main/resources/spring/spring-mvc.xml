@@ -52,6 +52,8 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <mvc:view-controller path="/" view-name="/ckgl/search" />
+
     <!-- 上传限制 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!-- 上传文件大小限制为31M，31*1024*1024 -->

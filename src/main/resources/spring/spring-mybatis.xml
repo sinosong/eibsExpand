@@ -90,13 +90,13 @@
         <!-- 全局表为下划线命名设置 true -->
         <!-- <property name="dbColumnUnderline" value="true" /> -->
         <!--<property name="metaObjectHandler"> TODO hannasong
-            <bean class="com.baomidou.springmvc.common.MyMetaObjectHandler" />
+            <bean class="com.brilliance.module.base.common.MyMetaObjectHandler" />
         </property>-->
     </bean>
 
     <!-- MyBatis 动态扫描  -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.baomidou.springmvc.mapper"/>
+        <property name="basePackage" value="com.brilliance.module.*.mapper"/>
     </bean>
 
     <!-- 配置事务管理 -->
