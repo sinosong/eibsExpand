@@ -21,11 +21,11 @@
     <spring.version>4.3.18.RELEASE</spring.version>
     <junit.version>4.12</junit.version>
     <druid.version>1.1.0</druid.version>
-    <fastjson.version>1.2.8</fastjson.version>
+    <fastjson.version>1.2.31</fastjson.version>
     <mybaitsplus.version>2.1.9</mybaitsplus.version>
     <log4j.version>1.2.17</log4j.version>
     <aspectjweaver.version>1.8.8</aspectjweaver.version>
-    <fileupload.version>1.3.1</fileupload.version>
+    <fileupload.version>1.3.3</fileupload.version>
     <jstl.version>1.2</jstl.version>
     <server.port>10200</server.port>
 
@@ -197,7 +197,7 @@
       <dependency>
           <groupId>org.apache.commons</groupId>
           <artifactId>commons-lang3</artifactId>
-          <version>3.8.1</version>
+          <version>3.5</version>
       </dependency>
 
   </dependencies>
