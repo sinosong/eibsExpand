@@ -1,3 +1,6 @@
 .idea/
 eibsExpand.iml
 target/
+eibsExpand.ipr
+eibsExpand.iws
+src/main/resources/rebel.xml
