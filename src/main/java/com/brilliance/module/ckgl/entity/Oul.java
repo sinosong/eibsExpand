@@ -2,14 +2,16 @@ package com.brilliance.module.ckgl.entity;
 import java.io.Serializable;
 import java.util.Date;
 import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.brilliance.module.base.entity.BaseModel;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 @TableName("OUL")
-public class Oul extends BaseModel implements Serializable{
+public class Oul implements Serializable{
 
+    @TableId(value = "inr", type = IdType.ID_WORKER)
 	private Long inr;
 	//组织机构代码
 	private String customercode;
